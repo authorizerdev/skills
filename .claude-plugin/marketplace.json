@@ -1,0 +1,14 @@
+{
+  "name": "authorizer-skills",
+  "owner": { "name": "Authorizer" },
+  "metadata": {
+    "description": "Official agent skills for Authorizer (https://authorizer.dev)."
+  },
+  "plugins": [
+    {
+      "name": "authorizer",
+      "source": "./",
+      "description": "Run Authorizer locally, integrate login, validate tokens, connect MCP hosts, model FGA permissions and set up agent delegation."
+    }
+  ]
+}

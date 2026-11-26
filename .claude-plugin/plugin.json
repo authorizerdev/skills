@@ -1,0 +1,10 @@
+{
+  "name": "authorizer",
+  "description": "Agent skills for Authorizer, the open-source self-hosted auth server: run it locally, add login to React/Next.js, validate tokens in a backend, connect an MCP host, model permissions with OpenFGA, and delegate a user's authority to an AI agent with RFC 8693 token exchange.",
+  "version": "0.1.0",
+  "author": { "name": "Authorizer" },
+  "homepage": "https://authorizer.dev",
+  "repository": "https://github.com/authorizerdev/skills",
+  "license": "Apache-2.0",
+  "keywords": ["authorizer", "authentication", "authorization", "oauth2", "oidc", "openfga", "mcp", "rfc8693"]
+}
