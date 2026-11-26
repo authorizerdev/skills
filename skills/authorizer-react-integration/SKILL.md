@@ -6,9 +6,8 @@ description: Add login, signup, logout and protected routes to a React or Next.j
 # Add Authorizer login to React / Next.js
 
 Prerequisite: a running Authorizer and its `client_id` (see `authorizer-local-setup`).
-The app's origin must be allowed by the server. `authorizer dev` already allows
-`http://localhost:3000`, `:5173` and `:4200` (check `allowed_origins` in its JSON).
-Otherwise start the server with `--allowed-origins=<app origin>,<authorizer url>` (e.g.
+The app's origin must be allowed by the server: start it with
+`--allowed-origins=<app origin>,<authorizer url>` (e.g.
 `--allowed-origins=http://localhost:3000,http://localhost:8080`). With the server default
 `*`, cross-origin POSTs from the browser are rejected with `403 csrf_validation_failed`.
 
@@ -37,7 +36,7 @@ export default function Root({ children }) {
       config={{
         authorizerURL: 'http://localhost:8080',
         redirectURL: window.location.origin,
-        clientID: 'YOUR_CLIENT_ID', // value of --client-id, or client_id from `authorizer dev --print-config`
+        clientID: 'YOUR_CLIENT_ID', // value of --client-id
       }}
     >
       {children}

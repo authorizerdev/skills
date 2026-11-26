@@ -104,8 +104,8 @@ The Python and Go SDKs set the CSRF `Origin` header themselves. An
 
 ## Offline JWKS verification (Node, `jose`)
 
-Requires an asymmetric key: `authorizer dev` uses RS256; the HS256 flag set publishes an
-empty JWKS and this cannot work.
+Requires an asymmetric key (RS256 setup in `authorizer-local-setup`, section 2); HS256
+publishes an empty JWKS and this cannot work.
 
 ```js
 import { createRemoteJWKSet, jwtVerify } from 'jose';

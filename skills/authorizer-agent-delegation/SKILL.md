@@ -76,7 +76,7 @@ These audiences are not interchangeable: a token bound to one is refused at the 
 
 ## 4. Validate at your resource server (offline)
 
-Verify with JWKS (RS*/ES* keys required — `authorizer dev` uses RS256), checking `iss`,
+Verify with JWKS (RS*/ES* keys required — see `authorizer-local-setup`, section 2), checking `iss`,
 `aud` = your resource URI, `exp`, and `scope`:
 
 ```js
