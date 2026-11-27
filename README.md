@@ -9,7 +9,7 @@ Authorizer docs and source and a **Verify** section of concrete checks:
 
 | Skill | What it does |
 | --- | --- |
-| [`authorizer-local-setup`](skills/authorizer-local-setup/SKILL.md) | Run a local instance (`authorizer dev` or explicit flags), read connection details, wait for `/readyz`, create a test user |
+| [`authorizer-local-setup`](skills/authorizer-local-setup/SKILL.md) | Run a local instance with Docker (or from source), RS256 keys for JWKS, allowed origins, wait for `/readyz`, create a test user |
 | [`authorizer-react-integration`](skills/authorizer-react-integration/SKILL.md) | Add login to React / Next.js with `@authorizerdev/authorizer-react` |
 | [`authorizer-backend-auth`](skills/authorizer-backend-auth/SKILL.md) | Validate access tokens in Node, Go or Python, or offline via JWKS |
 | [`authorizer-mcp-host`](skills/authorizer-mcp-host/SKILL.md) | Connect Claude Code / Cursor to Authorizer's `/mcp` server (static token or OAuth with CIMD/DCR) |
@@ -61,12 +61,6 @@ claude mcp add authorizer-docs -- uvx --with 'mcp<2' --from mcpdoc mcpdoc --urls
 `--with 'mcp<2'` pins the MCP Python SDK: the current `mcpdoc` release fails at startup
 against `mcp` 2.x (`No module named 'mcp.server.fastmcp'`). Once `mcpdoc` supports 2.x,
 `uvx --from mcpdoc mcpdoc --urls ...` is enough.
-
-## Note on `authorizer dev`
-
-`authorizer dev` (zero-flag local server with `--print-config`) arrives in the first
-release after 2.4.9. The local-setup skill detects it with `authorizer dev --help` and
-falls back to the documented explicit flags otherwise.
 
 ## Contributing
 

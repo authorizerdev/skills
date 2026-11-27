@@ -21,6 +21,6 @@ Ground rules that apply to every task:
   and an allowed `Origin` header, or they fail with `403 csrf_validation_failed`.
 - Admin operations (prefixed `_`, e.g. `_fga_write_tuples`, `_create_client`) use the
   `X-Authorizer-Admin-Secret` header and must run server-side only.
-- Never commit `client_secret`, the admin secret, or the `.authorizer/` dev state directory.
+- Never commit `client_secret`, the admin secret, or private signing keys (`private.pem`).
 - Do not invent flags, endpoints or SDK functions. When something isn't covered here,
   check https://docs.authorizer.dev/llms.txt (index) or https://docs.authorizer.dev/llms-full.txt (full text).

@@ -18,12 +18,14 @@ The old stdio `authorizer mcp` subcommand is deprecated (removed in 2.5.0) — d
 
 ## 1. Enable it on the server
 
-- `authorizer dev`: already on (`--mcp-enabled` and `--enable-client-id-metadata-document`
-  default to true); `mcp_url` is in `--print-config` output.
-- Explicit flags: add `--mcp-enabled` and a real `--url` (must be an `http(s)` origin):
+Add `--mcp-enabled` (and `--enable-client-id-metadata-document` for OAuth hosts) to the
+server command from `authorizer-local-setup`. `--url` must be a real `http(s)` origin; the
+MCP URL is `<url>/mcp`:
 
 ```bash
-./authorizer --url=http://localhost:8080 --mcp-enabled  # ...plus your other flags
+docker run -p 8080:8080 -v authorizer_data:/authorizer/data quay.io/authorizer/authorizer \
+  --url=http://localhost:8080 --mcp-enabled --enable-client-id-metadata-document \
+  ...   # the remaining flags from authorizer-local-setup
 ```
 
 ## 2. Understand the audience rule (the cause of most 401s)
@@ -88,8 +90,8 @@ must be registered somehow — both mechanisms are **off by default** in plain f
 ```
 
 Self-registered clients see a consent screen before a code is issued. DCR clients are
-public only (`token_endpoint_auth_method: none`), S256 PKCE is required. `authorizer dev`
-enables CIMD only; add `--enable-dynamic-client-registration` if your host needs DCR.
+public only (`token_endpoint_auth_method: none`), S256 PKCE is required. Add
+`--enable-dynamic-client-registration` if your host needs DCR.
 
 Tell users to add the connector as `<url>/mcp` (with the path), not the bare origin.
 
